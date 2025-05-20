@@ -1,0 +1,7 @@
+searchTerm,expectedResults
+mastodon,5
+selenium,10
+automation,7
+testing,15
+
+Note: This is a sample CSV file. Please replace with an actual CSV file with the structure shown above to run the tests. The expectedResults column should contain the minimum number of search results you expect to find for each search term.
