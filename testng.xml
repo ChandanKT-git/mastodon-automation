@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<<<<<<< HEAD
 <suite name="Mastodon Test Suite" parallel="tests" thread-count="2">
     <listeners>
         <listener class-name="qaproject.CustomTestListener"/>
@@ -78,4 +79,59 @@
             <class name="qaproject.MastodonCustomExceptionTest"/>
         </classes>
     </test>
+=======
+<suite name="Mastodon Test Suite">
+  <test name="Window Handling Tests">
+    <classes>
+      <class name="qaproject.MastodonWindowHandlingTest"/>
+    </classes>
+  </test>
+  
+  <test name="Form Interaction Tests">
+    <classes>
+      <class name="qaproject.MastodonFormInteractionTest"/>
+    </classes>
+  </test>
+  
+  <test name="Wait Strategy Tests">
+    <classes>
+      <class name="qaproject.MastodonWaitTest"/>
+      <class name="qaproject.SynchronizationTests"/>
+    </classes>
+  </test>
+  
+  <test name="XPath and CSS Selector Tests">
+    <classes>
+      <class name="qaproject.XPathMastodonTest"/>
+      <class name="qaproject.CSSSelectorMastodonTest"/>
+      <class name="qaproject.MastodonAdvancedXPathTest"/>
+      <class name="qaproject.MastodonComplexXPathTest"/>
+    </classes>
+  </test>
+  
+  <test name="UI Interaction Tests">
+    <classes>
+      <class name="qaproject.MastodonActionsTest"/>
+      <class name="qaproject.MastodonAdvancedInteractionsTest"/>
+      <class name="qaproject.MastodonDropdownTest"/>
+      <class name="qaproject.MastodonSelectTest"/>
+      <class name="qaproject.MastodonSelectClassTest"/>
+      <class name="qaproject.WebDriverWebElementMethodsTest"/>
+    </classes>
+  </test>
+  
+  <test name="JavaScript and Alert Tests">
+    <classes>
+      <class name="qaproject.MastodonJavaScriptExecutorTest"/>
+      <class name="qaproject.MastodonAlertFrameTest"/>
+    </classes>
+  </test>
+  
+  <test name="Exception Handling Tests">
+    <classes>
+      <class name="qaproject.MastodonExceptionHandlingTests"/>
+      <class name="qaproject.MastodonCustomExceptionTest"/>
+    </classes>
+  </test>
+>>>>>>> 0f9e4d61e27a145c4ebcba9614759011b9f8606a
 </suite>

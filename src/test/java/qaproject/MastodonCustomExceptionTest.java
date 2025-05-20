@@ -25,7 +25,11 @@ public class MastodonCustomExceptionTest {
         driver.manage().window().maximize();
     }
 
+<<<<<<< HEAD
     @Test(priority = 1, groups = {"exceptionTests"})
+=======
+    @Test(priority = 1)
+>>>>>>> 0f9e4d61e27a145c4ebcba9614759011b9f8606a
     public void testNetworkExceptionHandling() {
         try {
             // Attempt to load page with potential network issues
@@ -44,7 +48,11 @@ public class MastodonCustomExceptionTest {
         }
     }
 
+<<<<<<< HEAD
     @Test(priority = 2, groups = {"exceptionTests"})
+=======
+    @Test(priority = 2)
+>>>>>>> 0f9e4d61e27a145c4ebcba9614759011b9f8606a
     public void testElementStateExceptionHandling() {
         try {
             driver.get("https://mastodon.social");

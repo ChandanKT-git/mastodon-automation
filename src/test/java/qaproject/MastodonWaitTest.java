@@ -44,6 +44,7 @@ public class MastodonWaitTest {
             System.out.println("Handled IOException: " + e.getMessage());
         }
 
+<<<<<<< HEAD
         // Demonstrating wait instead of Thread.sleep
         driver.get("https://mastodon.social");
         try {
@@ -52,6 +53,14 @@ public class MastodonWaitTest {
             System.out.println("Used explicit wait instead of Thread.sleep");
         } catch (Exception e) {
             System.out.println("Exception during wait: " + e.getMessage());
+=======
+        // Demonstrating InterruptedException handling
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.out.println("Handled InterruptedException: " + e.getMessage());
+>>>>>>> 0f9e4d61e27a145c4ebcba9614759011b9f8606a
         }
     }
 
@@ -115,20 +124,36 @@ public class MastodonWaitTest {
     }
 
     @Test(priority = 4)
+<<<<<<< HEAD
     public void testExplicitWaitInsteadOfSleep() {
         driver.get("https://mastodon.social");
         
         // Using explicit wait instead of Thread.sleep
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(), 'Log in')]"))); 
+=======
+    public void testThreadSleep() throws InterruptedException {
+        driver.get("https://mastodon.social");
+        
+        // Using Thread.sleep (not recommended for production)
+        Thread.sleep(3000); // Static wait for 3 seconds
+>>>>>>> 0f9e4d61e27a145c4ebcba9614759011b9f8606a
         
         WebElement loginButton = driver.findElement(By.xpath("//a[contains(text(), 'Log in')]"));
         loginButton.click();
         
+<<<<<<< HEAD
         // Another explicit wait instead of Thread.sleep
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='user_email']")));
         
         WebElement emailField = driver.findElement(By.xpath("//input[@id='user_email']"));
         Assert.assertTrue(emailField.isDisplayed(), "Email field should be visible after explicit wait");
+=======
+        // Another Thread.sleep to demonstrate its limitations
+        Thread.sleep(2000);
+        
+        WebElement emailField = driver.findElement(By.xpath("//input[@id='user_email']"));
+        Assert.assertTrue(emailField.isDisplayed(), "Email field should be visible after static wait");
+>>>>>>> 0f9e4d61e27a145c4ebcba9614759011b9f8606a
     }
 
     @Test(priority = 5)
