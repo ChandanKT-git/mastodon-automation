@@ -1,0 +1,14 @@
+This is a placeholder file. Please replace with an actual Excel file (.xlsx) with the following structure:
+
+Sheet name: LoginTests
+Columns:
+- username
+- password
+- expectedResult
+
+Sample data rows:
+1. admin, admin123, success
+2. user1, password1, success
+3. invalid, wrongpass, failure
+
+Note: This sample file is provided as a reference. You'll need to create an actual Excel file with this structure to run the tests.

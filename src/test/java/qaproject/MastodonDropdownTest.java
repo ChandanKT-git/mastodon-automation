@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -12,6 +14,7 @@ import java.time.Duration;
 public class MastodonDropdownTest {
 
     WebDriver driver;
+    WebDriverWait wait;
 
     @BeforeMethod
     public void setUp() {
@@ -19,11 +22,11 @@ public class MastodonDropdownTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://mastodon.social");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    @Test
-    public void testCustomDropdown() throws InterruptedException {
+    @Test(groups = {"selectionTests"})
+    public void testCustomDropdown() {
         // Example: Interacting with a custom dropdown (e.g., language selector)
         // Note: Adjust the XPath/CSS selectors based on the actual elements
 
@@ -32,7 +35,7 @@ public class MastodonDropdownTest {
         menuButton.click();
 
         // Wait for the dropdown to be visible
-        Thread.sleep(2000); // Replace with explicit wait if necessary
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Preferences']")));
 
         // Click on the desired option within the custom dropdown
         WebElement dropdownOption = driver.findElement(By.xpath("//span[text()='Preferences']"));

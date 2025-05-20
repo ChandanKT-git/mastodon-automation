@@ -44,12 +44,14 @@ public class MastodonWaitTest {
             System.out.println("Handled IOException: " + e.getMessage());
         }
 
-        // Demonstrating InterruptedException handling
+        // Demonstrating wait instead of Thread.sleep
+        driver.get("https://mastodon.social");
         try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            System.out.println("Handled InterruptedException: " + e.getMessage());
+            // Using explicit wait instead of Thread.sleep
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
+            System.out.println("Used explicit wait instead of Thread.sleep");
+        } catch (Exception e) {
+            System.out.println("Exception during wait: " + e.getMessage());
         }
     }
 
@@ -113,20 +115,20 @@ public class MastodonWaitTest {
     }
 
     @Test(priority = 4)
-    public void testThreadSleep() throws InterruptedException {
+    public void testExplicitWaitInsteadOfSleep() {
         driver.get("https://mastodon.social");
         
-        // Using Thread.sleep (not recommended for production)
-        Thread.sleep(3000); // Static wait for 3 seconds
+        // Using explicit wait instead of Thread.sleep
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(), 'Log in')]"))); 
         
         WebElement loginButton = driver.findElement(By.xpath("//a[contains(text(), 'Log in')]"));
         loginButton.click();
         
-        // Another Thread.sleep to demonstrate its limitations
-        Thread.sleep(2000);
+        // Another explicit wait instead of Thread.sleep
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='user_email']")));
         
         WebElement emailField = driver.findElement(By.xpath("//input[@id='user_email']"));
-        Assert.assertTrue(emailField.isDisplayed(), "Email field should be visible after static wait");
+        Assert.assertTrue(emailField.isDisplayed(), "Email field should be visible after explicit wait");
     }
 
     @Test(priority = 5)
