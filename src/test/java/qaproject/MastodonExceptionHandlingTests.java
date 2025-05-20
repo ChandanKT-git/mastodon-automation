@@ -28,7 +28,6 @@ public class MastodonExceptionHandlingTests {
         }
     }
 
-    // ✅ Test 1: Handle NoSuchElementException and TimeoutException
     @Test
     public void testMissingElementHandling() {
         try {
@@ -57,7 +56,6 @@ public class MastodonExceptionHandlingTests {
 
             WebElement loginBtn = driver.findElement(By.xpath("//button[@type='submit']"));
 
-            // Scroll if button is hidden
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", loginBtn);
             loginBtn.click();
 
@@ -68,7 +66,6 @@ public class MastodonExceptionHandlingTests {
         }
     }
 
-    // ✅ Test 3: Handle NoAlertPresentException (Mock case)
     @Test
     public void testAlertPresence() {
         try {
@@ -78,7 +75,6 @@ public class MastodonExceptionHandlingTests {
             driver.findElement(By.id("user_password")).sendKeys("wrongpass");
             driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-            // Wait for fake alert (Mastodon uses modals; this is example only)
             wait.until(ExpectedConditions.alertIsPresent());
 
             Alert alert = driver.switchTo().alert();
