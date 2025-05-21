@@ -1,0 +1,23 @@
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Maven
+target/
+*.jar
+*.war
+*.ear
+*.class
+
+# Logs
+*.log
+
+# IDE-specific files
+.idea/
+*.iml
+*.iws
+
+# OS-specific files
+.DS_Store
+Thumbs.db
